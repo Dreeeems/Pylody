@@ -8,7 +8,7 @@ class MusicPlayer(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle('Dreems Player')
+        self.setWindowTitle('Pylody')
         self.setGeometry(100,100,400,300)
 
         self.player =  QMediaPlayer()
