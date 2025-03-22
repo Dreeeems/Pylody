@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add music</title>
+</head>
+<body>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+        <input type="text" placeholder="Song name" name="name" required>
+        <input type="text" placeholder="Artist name" name="artist" required>
+        <input type="file" name="image" accept="image/*" required>
+        <input type="file" name="music" accept=".mp3,.wav,.ogg" required>
+        <input type="submit" value="Validate">
+    </form>
+    
+</body>
+</html>

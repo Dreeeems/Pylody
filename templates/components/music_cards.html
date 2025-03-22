@@ -1,0 +1,16 @@
+
+<div class="item"> 
+    <div class="card">
+        <div class="card_img">
+            <img src=/static/{{music.image}} alt="">
+            <div class="card_content">
+                <h2>
+                    {{music.name}}
+                </h2>
+                <form action="/delete/{{music.id}}" method="POST">
+                    <button> Delete ? </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
