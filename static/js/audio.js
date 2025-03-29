@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const playPauseBtn = document.getElementById("play-pause-btn");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
-    const loopBtn = document.getElementById("loop-btn");  // Correction ici
+    const loopBtn = document.getElementById("loop-btn");  
     const progressBar = document.getElementById("progress-bar");
     const playerCover = document.getElementById("player-cover");
     const playerTitle = document.getElementById("player-title");
@@ -65,11 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     loopBtn.addEventListener("click", () => {
-        audioPlayer.loop = !audioPlayer.loop;  // Toggle loop state
+        audioPlayer.loop = !audioPlayer.loop;  
         if (audioPlayer.loop) {
-            loopBtn.style.color = "green";  // Optionally change color when loop is active
+            loopBtn.style.color = "green";  
         } else {
-            loopBtn.style.color = "black";  // Reset color when loop is not active
+            loopBtn.style.color = "black";  
         }
     });
 
