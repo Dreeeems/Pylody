@@ -1,16 +1,23 @@
-
-<div class="item"> 
+<div class="item">
     <div class="card">
         <div class="card_img">
-            <img src=/static/{{music.image}} alt="">
-            <div class="card_content">
-                <h2>
-                    {{music.name}}
-                </h2>
-                <form action="/delete/{{music.id}}" method="POST">
-                    <button> Delete ? </button>
-                </form>
-            </div>
+            <img src="/static/{{music.image}}" alt="Cover Image">
+        </div>
+        <div class="card_content">
+            <h2>{{music.name}}</h2>
+            
+
+            
+            <button class="play-btn" 
+                    data-title="{{music.name}}" 
+                    data-cover="/static/{{music.image}}" 
+                    data-src="{{ url_for('static', filename=music.song) }}">
+                ▶ Play
+            </button>
+
+            <form action="/delete/{{music.id}}" method="POST">
+                <button type="submit" class="delete-btn">Delete?</button>
+            </form>
         </div>
     </div>
 </div>

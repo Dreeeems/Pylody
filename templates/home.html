@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 </head>
 <body>
+    {% include 'components/navbar.html' %}
+    <form action="/search" method="GET" class="search-form">
+        <input type="text" id="searchBar" name="query" placeholder="Search for music..." required>
+        <button type="submit" class="search-btn">🔍</button>
+    </form>
+    
+
     <div class="music_cards">
 
             {% for music in musics%}
                 {% include 'components/music_cards.html' %}
             {%endfor%}
-
+            {% include 'components/audio_player.html' %}
     </div>
+
+    <script src="{{ url_for('static', filename='js/home.js') }}">
+        
+    </script>
+    
+
 </body>
 </html>

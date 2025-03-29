@@ -1,0 +1,19 @@
+<div id="music-player" class="hidden">
+    <div class="player-container">
+        <img id="player-cover" src="" alt="Cover" class="cover">
+        <div class="info">
+            <h3 id="player-title">Title</h3>
+            <p id="player-artist">Artist</p>
+        </div>
+        <audio id="audio-player"></audio>
+        <div class="controls">
+            <button id="prev-btn">⏮</button>
+            <button id="play-pause-btn">▶</button>
+            <button id="next-btn">⏭</button>
+        </div>
+        <input type="range" id="progress-bar" value="0">
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/audio.js') }}">
+        
+</script>

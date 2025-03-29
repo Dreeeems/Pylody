@@ -97,8 +97,20 @@ def remove(id):
     db.session.commit()
     return redirect(url_for('home'))
 
+@app.route("/search", methods=["GET"])
+def search():
+    query = request.args.get('query')
+    if query:
+         musics = Music.query.filter(
+            Music.name.like(f'%{query}%') | Music.artist.like(f'%{query}%')
+        ).all()
+         return render_template('home.html', musics=musics)
+    else:
+        musics = []
+        return redirect(url_for('home'))
 
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  
         app.run(debug=True)
+

@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add.css') }}">
     <title>Add music</title>
 </head>
 <body>
+    {% include 'components/navbar.html' %}
     <form action="/add" method="POST" enctype="multipart/form-data">
         <input type="text" placeholder="Song name" name="name" required>
         <input type="text" placeholder="Artist name" name="artist" required>
