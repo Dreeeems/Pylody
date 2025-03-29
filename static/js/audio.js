@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const playPauseBtn = document.getElementById("play-pause-btn");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
+    const loopBtn = document.getElementById("loop-btn");  // Correction ici
     const progressBar = document.getElementById("progress-bar");
     const playerCover = document.getElementById("player-cover");
     const playerTitle = document.getElementById("player-title");
@@ -11,29 +12,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentTrackIndex = 0;
     let tracks = [];
-    console.log(tracks)
 
     const playButtons = document.querySelectorAll('.play-btn');
 
     playButtons.forEach((button, index) => {
-        
         tracks.push({
             src: button.getAttribute('data-src'),
             title: button.getAttribute('data-title'),
             artist: button.getAttribute('data-artist'),
             cover: button.getAttribute('data-cover')
-        });console.log(currentTrackIndex)
+        });
 
         button.addEventListener('click', () => {
-            if(currentTrackIndex !== 0){
-            currentTrackIndex = index;
-            loadTrack(currentTrackIndex);
-            musicPlayer.classList.remove("hidden");
-            audioPlayer.play();
-        }
+            if(currentTrackIndex !== index){
+                currentTrackIndex = index;
+                loadTrack(currentTrackIndex);
+                musicPlayer.classList.remove("hidden");
+                audioPlayer.play();
+            }
         });
     });
-
 
     function loadTrack(index) {
         let track = tracks[index];
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         playerCover.src = track.cover;
         playPauseBtn.innerText = "⏸"; 
     }
-
 
     playPauseBtn.addEventListener("click", () => {
         if (audioPlayer.paused) {
@@ -65,6 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
         currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
         loadTrack(currentTrackIndex);
         audioPlayer.play();
+    });
+
+    loopBtn.addEventListener("click", () => {
+        audioPlayer.loop = !audioPlayer.loop;  // Toggle loop state
+        if (audioPlayer.loop) {
+            loopBtn.style.color = "green";  // Optionally change color when loop is active
+        } else {
+            loopBtn.style.color = "black";  // Reset color when loop is not active
+        }
     });
 
     audioPlayer.addEventListener("timeupdate", () => {
